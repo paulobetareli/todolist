@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
+
+//meme
+
 class MainActivity : AppCompatActivity() {
     companion object {
         private const val REQUEST_CADASTRO: Int = 1 //para executar o cadastro de todo
