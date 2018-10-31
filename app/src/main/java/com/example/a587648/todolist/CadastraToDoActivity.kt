@@ -6,6 +6,10 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_cadastro.*
+import org.jetbrains.anko.activityUiThreadWithContext
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+import java.util.*
 
 /**
  * Created by 587648 on 24/10/18.
