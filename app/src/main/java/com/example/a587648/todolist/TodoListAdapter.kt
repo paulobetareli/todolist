@@ -10,11 +10,11 @@ import java.nio.file.Files.delete
 
 
 
-class TodoListAdapter(val context: Context, val todos: List<String>)
+class TodoListAdapter(val context: Context, val todos: List<Todo>)
     : RecyclerView.Adapter<TodoListAdapter.ViewHolder>() {
 
     //salva a função do clique no item
-    var clickListener: ((todo:String, index: Int) -> Unit)? = null
+    var clickListener: ((index: Int) -> Unit)? = null
     var doneListener: ((index: Int) -> Unit)? = null
 
 
@@ -35,7 +35,7 @@ class TodoListAdapter(val context: Context, val todos: List<String>)
     }
 
     //configuração a função de clique nos itens
-    fun setOnItemClickListener(clique: ((todo:String, index: Int) -> Unit)){
+    fun setOnItemClickListener(clique: ((index: Int) -> Unit)){
         this.clickListener = clique
     }
 
@@ -45,14 +45,14 @@ class TodoListAdapter(val context: Context, val todos: List<String>)
     }
 
     //referência para a view de cada item da lista
-    class ViewHolder(itemView: View, todos: List<String>) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View, todos: List<Todo>) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindView(context:Context, todo: String, clickListener: ((todo:String, index: Int) -> Unit)?, doneListener: ((index: Int) -> Unit)?) {
-            itemView.textTodo.text = todo
+        fun bindView(context:Context, todo: Todo, clickListener: ((index: Int) -> Unit)?, doneListener: ((index: Int) -> Unit)?) {
+            itemView.textTodo.text = todo.texto
 
             if(clickListener != null) {
                 itemView.setOnClickListener {
-                    clickListener.invoke(todo, adapterPosition)
+                    clickListener.invoke(adapterPosition)
                 }
             }
 

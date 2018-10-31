@@ -55,7 +55,7 @@ class CadastraToDoActivity : AppCompatActivity() {
             return
         }
 
-
+        todo?.texto = edtTodo.text.toString()
 
 //        val abreLista = Intent(this, MainActivity::class.java)
 //        abreLista.putExtra(TODO, todo)
